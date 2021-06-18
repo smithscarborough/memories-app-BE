@@ -16,6 +16,11 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
+// route that user sees upon vistiing the actual deployed version of the BE:
+app.get('/', (req, res) => {
+    res.send('Welcome to the Memories App API!');
+});
+
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
